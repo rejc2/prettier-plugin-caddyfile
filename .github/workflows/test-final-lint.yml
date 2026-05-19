@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Final Lint
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  final-lint:
+    name: Final lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "26"
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Lint (strict)
+        run: yarn lint:strict
+
+      - name: Check formatting
+        run: yarn format:check

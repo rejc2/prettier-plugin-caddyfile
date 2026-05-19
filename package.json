@@ -1,0 +1,53 @@
+{
+  "name": "@rejc2/prettier-plugin-caddyfile",
+  "version": "0.1.0",
+  "packageManager": "yarn@4.12.0",
+  "type": "module",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn build:go && yarn build:ts",
+    "build:go": "cd gosrc; tinygo build -o ../dist/caddyfmt.wasm -target=wasm-unknown -opt=z -gc=leaking -scheduler=none formatCaddyfile.go",
+    "build:prod": "yarn build && yarn opt",
+    "build:ts": "rollup -c",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "lint:strict": "yarn lint --max-warnings 0",
+    "opt": "wasm-opt -Oz --strip-debug ./dist/caddyfmt.wasm -o ./dist/caddyfmt.wasm",
+    "test": "vitest run",
+    "typecheck": "tsc",
+    "validate:yaml": "vite-node scripts/validate-yaml-schemas.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@rollup/plugin-replace": "^6.0.3",
+    "@rollup/plugin-typescript": "^12.3.0",
+    "@trivago/prettier-plugin-sort-imports": "^6.0.2",
+    "@types/node": "^25.6.0",
+    "ajv": "^8.18.0",
+    "ajv-formats": "^3.0.1",
+    "eslint": "^10.3.0",
+    "eslint-plugin-import": "^2.32.0",
+    "jiti": "^2.6.1",
+    "prettier": "^3.8.3",
+    "rollup": "^4.60.3",
+    "rollup-plugin-dts": "^6.4.1",
+    "tslib": "^2.8.1",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.2",
+    "vite-node": "^6.0.0",
+    "vitest": "^4.1.6",
+    "yaml": "^2.8.2"
+  }
+}

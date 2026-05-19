@@ -1,0 +1,21 @@
+# Ignore everything by default:
+/*
+
+# Include source files:
+!/.github
+!/src
+
+# Include formattable files in the root:
+!/.editorconfig
+!/*.js
+!/*.json
+!/*.md
+!/*.ts
+!/*.yaml
+!/*.yml
+
+# Exclude generated files:
+generated
+mockServiceWorker.js
+test-results
+playwright-report

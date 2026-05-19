@@ -1,9 +1,17 @@
 {
   "name": "@rejc2/prettier-plugin-caddyfile",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "packageManager": "yarn@4.12.0",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rejc2/prettier-plugin-caddyfile.git"
+  },
+  "homepage": "https://github.com/rejc2/prettier-plugin-caddyfile",
+  "bugs": {
+    "url": "https://github.com/rejc2/prettier-plugin-caddyfile/issues"
+  },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -28,6 +36,9 @@
     "test": "vitest run",
     "typecheck": "tsc",
     "validate:yaml": "vite-node scripts/validate-yaml-schemas.js"
+  },
+  "peerDependencies": {
+    "prettier": ">=3"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

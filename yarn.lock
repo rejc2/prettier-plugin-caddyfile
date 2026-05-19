@@ -337,6 +337,8 @@ __metadata:
     vite-node: "npm:^6.0.0"
     vitest: "npm:^4.1.6"
     yaml: "npm:^2.8.2"
+  peerDependencies:
+    prettier: ">=3"
   languageName: unknown
   linkType: soft
 

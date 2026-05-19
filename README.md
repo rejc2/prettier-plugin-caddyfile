@@ -1,10 +1,13 @@
 # @rejc2/prettier-plugin-caddyfile
 
-A [Prettier](https://prettier.io) plugin that formats [Caddyfiles](https://caddyserver.com/docs/caddyfile) using Caddy's own formatter, compiled to WebAssembly.
+[![npm](https://img.shields.io/npm/v/@rejc2/prettier-plugin-caddyfile.svg)](https://www.npmjs.com/package/@rejc2/prettier-plugin-caddyfile)
+[![Tests](https://github.com/rejc2/prettier-plugin-caddyfile/actions/workflows/ci-main.yml/badge.svg)](https://github.com/rejc2/prettier-plugin-caddyfile/actions/workflows/ci-main.yml)
+
+A [Prettier](https://prettier.io) plugin that formats [Caddyfiles](https://caddyserver.com/docs/caddyfile) using Caddy’s own formatter, compiled to WebAssembly.
 
 ## Why
 
-Caddy ships a canonical formatter as part of `caddy fmt`. Rather than reimplementing it in JavaScript and drifting from upstream, this plugin wraps Caddy's Go formatter as a `.wasm` module (built with TinyGo) and calls it from Prettier. The output matches `caddy fmt` byte-for-byte.
+Caddy ships a canonical formatter as part of `caddy fmt`. Rather than reimplementing it in JavaScript and drifting from upstream, this plugin wraps Caddy’s Go formatter as a `.wasm` module (built with TinyGo) and calls it from Prettier. The output matches `caddy fmt` byte-for-byte.
 
 ## Install
 
